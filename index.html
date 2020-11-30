@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+ 
+  <link rel="stylesheet" href="jquery.datetimepicker.min.css">
+<script src="jquery.js"></script>
+<script src= "jquery.datetimepicker.full.js"></script>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>NMMC HR Appointment</title>
+</head>
+<body onload="readTask()">
+  <nav class="navbar navbar-dark bg-success mb-4">
+
+    <span class="navbar-brand mb-0  h1 {text-align: center;}    ">NMMC HR Appointment System</span>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6" id="firstSection">
+        <form class="border p-4 mb-4 " id="form">
+
+          <div class="form-group">
+            <label >Full name</label><span style="color: red !important; display: inline; float: none;">*</span>
+            <input type="text" class="form-control" id="fullname" placeholder="Enter full name">
+          </div>
+
+          <div class="form-group">
+            <label >Contact No.</label><span style="color: red !important; display: inline; float: none;">*</span>
+            <input type="text" class="form-control" id="contactno" placeholder="Enter contact no.">
+          </div>
+
+          <label for="document">Type of document</label><span style="color: red !important; display: inline; float: none;">*</span>      
+        
+          <select id="documenttype" name="document" class="form-control">
+              <option value="Certificate of Employment">Certificate of Employment</option>
+              <option value="Service Record">Service Record</option>
+              <option value="Pay Slip">Pay Slip</option>
+              <option value="DTR">DTR</option>
+              
+              
+          </select>
+
+          <label for="method">Method</label><span style="color: red !important; display: inline; float: none;">*</span>      
+        
+          <select id="method" name="method" class="form-control">
+              <option value="Pick-up">Pick-up</option>
+              <option value="Send via Email">Send via Email</option>
+                                      
+          </select>
+
+
+          <div class="form-group">
+            <label>Email Address (if you choose send via email)</label>
+            <input type="text" class="form-control" id="emailaddress" placeholder="enter email address">
+          </div>
+
+
+          <div class="form-group">
+            <label>Special Instruction</label>
+            <input type="text" class="form-control" id="description" placeholder="Special Instruction">
+          </div>
+
+
+
+        
+
+          <div class="form-group">
+            <label>Date and Time</label><span style="color: red !important; display: inline; float: none;">*</span>
+            <input id="datetime">
+            <script>
+              $("#datetime").datetimepicker({
+                hours12: true,
+                allowTimes: ['8:00','8:30','9:00','9:30','10:00','10:30','11:00','11:30',
+                            '1:00','1:30','2:00','2:30','3:00','3:30','4:00','4:30',],
+                yearStart: 2020,
+                yearEnd: 2021,
+                
+                
+              });
+              
+            </script>
+          </div>
+         
+        
+          <button type="submit"  id="button1" class="btn btn-primary"><i class="fas fa-plus"></i> Submit</button>
+          <button style="display: none" id="button2" class="btn btn-success">Update Task</button>
+          <button style="display: none" id="button3" class="btn btn-danger">Cancel</button>
+        </form>
+
+      </div>
+      
+    </div>
+
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/5214a39abf.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.3/dist/sweetalert2.all.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
