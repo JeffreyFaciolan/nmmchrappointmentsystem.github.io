@@ -15,23 +15,25 @@ document.getElementById("form").addEventListener("submit",(e)=>{
   var fullname = document.getElementById("fullname").value;
   var contactno = document.getElementById("contactno").value;
   var description = document.getElementById("description").value;
-  var datetime = document.getElementById("datetime").value;
+  var date = document.getElementById("date").value;
+  var time = document.getElementById("time").value;
   var documenttype = document.getElementById("documenttype").value;
   var method = document.getElementById("method").value;
   var emailaddress = document.getElementById("emailaddress").value;
 
   e.preventDefault();
-  createTask(fullname,description, datetime, documenttype, contactno, method, emailaddress);
+  createTask(fullname,description, date, time, documenttype, contactno, method, emailaddress);
   form.reset();
 });
 
-function createTask(fullname,description, datetime, documenttype, contactno, method, emailaddress ){
+function createTask(fullname,description, date, time, documenttype, contactno, method, emailaddress ){
  
   var task={
    
     fullname: fullname,
     description:description,
-    datetime: datetime,
+    date: date,
+    time: time,
     documenttype: documenttype,
     contactno: contactno,
     method: method,
@@ -71,8 +73,10 @@ function readTask(){
           <p class="card-text">${taskValue.data().emailaddress}</p>
           <h6 class="card-title">Special Instruction:</h6>
           <p class="card-text">${taskValue.data().description}</p>
-          <h6 class="card-title">Date and Time:</h6>
-          <p class="card-text">${taskValue.data().datetime}</p>
+          <h6 class="card-title">Time:</h6>
+          <p class="card-text">${taskValue.data().time} am</p>
+          <h6 class="card-title">Date:</h6>
+          <p class="card-text">${taskValue.data().date}</p> 
           <p align="right">
             <button type="submit"  class="btn btn-info " onclick="deleteTask('${taskValue.id}')"><i class="fas fa-trash-alt"></i>Finished</button>
           </p>
@@ -176,3 +180,4 @@ function deleteTask(id){
   document.getElementById("cardSection").innerHTML='';
   readTask();
 }
+
